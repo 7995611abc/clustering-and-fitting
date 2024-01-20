@@ -6,27 +6,23 @@ from scipy.optimize import curve_fit
 import numpy as np
 
 # Function to read data using pandas
-def read_data(API_E):
+def read_data(NITROUSoxide):
     """
     Read data from a CSV file using pandas.
-
     Parameters:
     - file_path (str): Path to the CSV file.
-
     Returns:
     - df (pd.DataFrame): Pandas DataFrame containing the data.
     """
-    df = pd.read_csv(API_E)
+    df = pd.read_csv(NITROUSoxide)
     return df
 
 # Function to transpose and clean the dataframe
 def transpose_and_clean(df):
     """
     Transpose and clean the DataFrame.
-
     Parameters:
     - df (pd.DataFrame): Input DataFrame.
-
     Returns:
     - transposed_df (pd.DataFrame): Transposed and cleaned DataFrame.
     """
@@ -56,10 +52,8 @@ def perform_clustering(data, n_clusters):
 def normalize_and_backscale(data):
     """
     Normalize and back scale the data.
-
     Parameters:
     - data (pd.DataFrame): Input data.
-
     Returns:
     - normalized_data (pd.DataFrame): Normalized and back-scaled data.
     """
@@ -71,7 +65,6 @@ def normalize_and_backscale(data):
 def plot_clustering(data, cluster_labels, centers):
     """
     Plot clustering results.
-
     Parameters:
     - data (pd.DataFrame): Input data.
     - cluster_labels (np.array): Cluster labels assigned by KMeans.
@@ -89,11 +82,9 @@ def plot_clustering(data, cluster_labels, centers):
 def your_curve_function(x, a, b):
     """
     Sample curve function for curve fitting.
-
     Parameters:
     - x (np.array): Independent variable.
     - a, b: Parameters of the curve.
-
     Returns:
     - y (np.array): Dependent variable.
     """
@@ -102,11 +93,9 @@ def your_curve_function(x, a, b):
 def fit_data(x, y):
     """
     Fit data to a curve using curve_fit.
-
     Parameters:
     - x (np.array): Independent variable.
     - y (np.array): Dependent variable.
-
     Returns:
     - params (tuple): Parameters of the fitted curve.
     """
@@ -115,10 +104,8 @@ def fit_data(x, y):
 
 # Function for plotting fit results
 def plot_fit(x, y, params, confidence_interval):
-
     """
     Plot the fit results.
-
     Parameters:
     - x (np.array): Independent variable.
     - y (np.array): Dependent variable.
@@ -160,7 +147,7 @@ if __name__ == "__main__":
     
     # Student ID
     student_id = 22086338
-    # Generate sample data for line plot
+    student_name='B chandra sekhar'
     
     # Abstract
     abstract = """
@@ -173,7 +160,7 @@ if __name__ == "__main__":
     y_line = np.sin(x_line)
     plot_fit(x_line, y_line, [1, 0], np.ones_like(x_line))
 
-    # Generate sample data for clustering
+    # sample data for clustering
     np.random.seed(42)
     data_cluster = np.random.rand(100, 2)  # Sample 2D data for clustering
     # Normalize data for clustering
@@ -185,7 +172,7 @@ if __name__ == "__main__":
     cluster_centers = KMeans(n_clusters=3, random_state=42).fit(data_cluster).cluster_centers_
     plot_clustering(data_cluster, cluster_labels, cluster_centers)
 
-    # Generate sample data for curve fitting
+    # sample data for curve fitting
     x_fit = np.linspace(0, 10, 100)
     true_params = [2, 1]
     y_fit_true = your_curve_function(x_fit, *true_params)
